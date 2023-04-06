@@ -8,18 +8,18 @@
 #  updated_at :datetime         not null
 #
 class User < ApplicationRecord
-    has_many :course,
-        primary_key: :id, 
-        foreign_key: :instructor_id, 
-        class: :Course
+    # has_many :courses,
+    #     primary_key: :id, 
+    #     foreign_key: :course_id, 
+    #     class_name: :Course
     
     has_many :enrollments,
         primary_key: :id,
         foreign_key: :student_id, 
-        class: :Enrollment
+        class_name: :Enrollment
 
     has_many :enrolled_courses,
-            through: :enrollments
+            through: :enrollments,
             source: :course
 
 end
